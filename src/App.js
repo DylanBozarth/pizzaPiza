@@ -1,11 +1,13 @@
 
 import './App.css';
+import CYO from './CYO';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        aaaa
+      
+        <CYO />
       </header>
     </div>
   );
