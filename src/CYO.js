@@ -3,11 +3,12 @@ import React, { useState } from "react";
 const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState(null);
   const [toppings, setToppings] = useState([]);
+  const [price, setPrice] = useState(0);
   const changePizza = (e) => {
     setPizzaSize(e.target.value);
   };
   const changeToppings = (e) => {
-    setToppings(e.target.value);
+    setToppings([...toppings, e.target.value]);
   };
   return (
     <div className="container">
@@ -36,19 +37,63 @@ const CYO = () => {
           <h3>Toppings</h3>
           <button
             type="button"
-            value="Peperoni"
+            value="Peperoni "
             onClick={(event) => changeToppings(event)}
           >
             Pepperoni
           </button>
           <button
             type="button"
-            value="Sausage"
+            value="Sausage "
             onClick={(event) => changeToppings(event)}
           >
             Sausage
           </button>
+          <button
+            type="button"
+            value="Spinach "
+            onClick={(event) => changeToppings(event)}
+          >
+            Spinach
+          </button>
+          <button
+            type="button"
+            value="Mushrooms "
+            onClick={(event) => changeToppings(event)}
+          >
+            Mushrooms
+          </button>
+          <button
+            type="button"
+            value="Artichoke Hearts "
+            onClick={(event) => changeToppings(event)}
+          >
+            Artichoke Hearts
+          </button>
+          <button
+            type="button"
+            value="Ground Beef "
+            onClick={(event) => changeToppings(event)}
+          >
+            Ground Beef
+          </button>
+          <button
+            type="button"
+            value="Olives "
+            onClick={(event) => changeToppings(event)}
+          >
+            Olives
+          </button>
+          <button
+            type="button"
+            value="Tomatoes "
+            onClick={(event) => changeToppings(event)}
+          >
+            Tomatoes
+          </button>
+        <p>Price: {price}</p>
         </div>
+        
       </div>
     </div>
   );
