@@ -5,16 +5,17 @@ const CYO = () => {
   const [toppings, setToppings] = useState([]);
   const [price, setPrice] = useState(0);
   const [startPrice, setStartPrice] = useState(0);
+  const [toppingPrice, setToppingPrice] = useState(0)
   const changePizza = (e) => {
     setPizzaSize(e.target.name);
+    setStartPrice(parseInt(e.target.value))
+    setPrice(startPrice + toppingPrice )
   };
   const changeToppings = (e) => {
     setToppings([...toppings, e.target.value]);
   };
-  const changeStartPrice = (e) => {
-    setStartPrice(e.target.value);
-  };
-const toppingPrice = () => {
+const countToppings = () => {
+setToppingPrice(price + toppings.length)
 
 }
   return (
@@ -32,7 +33,7 @@ const toppingPrice = () => {
             value="10"
             name="Medium"
             onClick={(event) => {changePizza(event)
-            changeStartPrice(event);
+            
             }}
           >
             Medium
@@ -42,15 +43,25 @@ const toppingPrice = () => {
             value="12"
             name="Large"
             onClick={(event) => {changePizza(event)
-            changeStartPrice(event)}}
+            }}
           >
             Large
+          </button>
+          <button
+            type="button"
+            value="15"
+            name="Large"
+            onClick={(event) => {changePizza(event)
+            }}
+          >
+            Extra Large
           </button>
           <h3>Toppings</h3>
           <button
             type="button"
             value="Peperoni "
-            onClick={(event) => changeToppings(event)}
+            onClick={(event) => {changeToppings(event) 
+            countToppings()}}
           >
             Pepperoni
           </button>
@@ -103,7 +114,7 @@ const toppingPrice = () => {
           >
             Tomatoes
           </button>
-          <p>Price: {startPrice}</p>
+          <p>Price: {price}</p>
         </div>
       </div>
     </div>
