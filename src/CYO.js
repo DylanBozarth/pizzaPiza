@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState(null);
   const [toppings, setToppings] = useState([]);
-  const [price, setPrice] = useState(0);
+ 
   const [startPrice, setStartPrice] = useState(0);
   const [toppingPrice, setToppingPrice] = useState(0)
   const changePizza = (e) => {
     setPizzaSize(e.target.name);
     setStartPrice(parseInt(e.target.value))
-    setPrice(startPrice + toppingPrice )
+    
   };
   const changeToppings = (e) => {
     setToppings([...toppings, e.target.value]);
   };
 const countToppings = () => {
-setToppingPrice(price + toppings.length)
+  
+  setToppingPrice(toppings.length * 1.5)
+
 
 }
+
+  let price = startPrice + toppingPrice
+
   return (
     <div className="container">
       <h1 className="text-center">Create your own pizza</h1>
@@ -65,55 +70,13 @@ setToppingPrice(price + toppings.length)
           >
             Pepperoni
           </button>
-          <button
-            type="button"
-            value="Sausage "
-            onClick={(event) => changeToppings(event)}
-          >
-            Sausage
-          </button>
-          <button
-            type="button"
-            value="Spinach "
-            onClick={(event) => changeToppings(event)}
-          >
-            Spinach
-          </button>
-          <button
-            type="button"
-            value="Mushrooms "
-            onClick={(event) => changeToppings(event)}
-          >
-            Mushrooms
-          </button>
-          <button
-            type="button"
-            value="Artichoke Hearts "
-            onClick={(event) => changeToppings(event)}
-          >
-            Artichoke Hearts
-          </button>
-          <button
-            type="button"
-            value="Ground Beef "
-            onClick={(event) => changeToppings(event)}
-          >
-            Ground Beef
-          </button>
-          <button
-            type="button"
-            value="Olives "
-            onClick={(event) => changeToppings(event)}
-          >
-            Olives
-          </button>
-          <button
-            type="button"
-            value="Tomatoes "
-            onClick={(event) => changeToppings(event)}
-          >
-            Tomatoes
-          </button>
+          
+          
+          
+          
+          
+          
+          
           <p>Price: {price}</p>
         </div>
       </div>
