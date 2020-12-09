@@ -5,7 +5,7 @@ const CYO = () => {
   const [toppings, setToppings] = useState([]);
  
   const [startPrice, setStartPrice] = useState(0);
-  const [toppingPrice, setToppingPrice] = useState(0)
+  // const [toppingPrice, setToppingPrice] = useState(0)
   const changePizza = (e) => {
     setPizzaSize(e.target.name);
     setStartPrice(parseInt(e.target.value))
@@ -16,13 +16,13 @@ const CYO = () => {
   };
 const countToppings = () => {
   
-  setToppingPrice(toppings.length * 1.5)
+  console.log('aa')
 
 
 }
-
-  let price = startPrice + toppingPrice
-
+let toppingPrice = toppings.length * 1.5
+let price = startPrice + toppingPrice
+  
   return (
     <div className="container">
       <h1 className="text-center">Create your own pizza</h1>
