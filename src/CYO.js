@@ -10,6 +10,10 @@ const CYO = () => {
   const changeToppings = (e) => {
     setToppings([...toppings, e.target.value]);
   };
+  const changePrice = () => {
+    setPrice(price + 1)
+
+  }
   return (
     <div className="container">
       <h1 className="text-center">Create your own pizza</h1>
