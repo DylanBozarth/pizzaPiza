@@ -4,16 +4,19 @@ const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState(null);
   const [toppings, setToppings] = useState([]);
   const [price, setPrice] = useState(0);
+  const [startPrice, setStartPrice] = useState(0);
   const changePizza = (e) => {
     setPizzaSize(e.target.name);
   };
   const changeToppings = (e) => {
     setToppings([...toppings, e.target.value]);
   };
-  const changePrice = (e) => {
-    setPrice(e.target.value);
+  const changeStartPrice = (e) => {
+    setStartPrice(e.target.value);
   };
+const toppingPrice = () => {
 
+}
   return (
     <div className="container">
       <h1 className="text-center">Create your own pizza</h1>
@@ -29,7 +32,7 @@ const CYO = () => {
             value="10"
             name="Medium"
             onClick={(event) => {changePizza(event)
-            changePrice(event);
+            changeStartPrice(event);
             }}
           >
             Medium
@@ -39,7 +42,7 @@ const CYO = () => {
             value="12"
             name="Large"
             onClick={(event) => {changePizza(event)
-            changePrice(event)}}
+            changeStartPrice(event)}}
           >
             Large
           </button>
@@ -100,7 +103,7 @@ const CYO = () => {
           >
             Tomatoes
           </button>
-          <p>Price: {price}</p>
+          <p>Price: {startPrice}</p>
         </div>
       </div>
     </div>
