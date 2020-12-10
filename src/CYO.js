@@ -13,9 +13,7 @@ const CYO = () => {
   const changeToppings = (e) => {
     setToppings([...toppings, e.target.value]);
   };
-  const countToppings = () => {
-    console.log("aa");
-  };
+ 
   let toppingPrice = toppings.length * 1.5;
   let price = startPrice + toppingPrice;
 
@@ -52,62 +50,66 @@ const CYO = () => {
           <button
             type="button"
             value="15"
-            name="Large"
+            name="Extra Large"
             onClick={(event) => {
               changePizza(event);
             }}
           >
             Extra Large
           </button>
+          <br />
           <h3>Toppings</h3>
+          
+          <h4>Meats</h4>
           <button
             type="button"
             value="Peperoni "
             onClick={(event) => {
               changeToppings(event);
-              countToppings();
+              
             }}
           >
             Pepperoni
           </button>
           <button
             type="button"
-            value="Sausage"
+            value="Sausage "
             onClick={(event) => {
               changeToppings(event);
-              countToppings();
+              
             }}
           >
             Sausage
           </button>
           <button
             type="button"
-            value="Beef"
+            value="Beef "
             onClick={(event) => {
               changeToppings(event);
-              countToppings();
+             
             }}
           >
             Beef
           </button>
           <button
             type="button"
-            value="Salami"
+            value="Salami "
             onClick={(event) => {
               changeToppings(event);
-              countToppings();
+              
             }}
           >
             Salami
           </button>
           <button
             type="button"
-            value="Bacon"
+            value="Bacon "
             onClick={(event) => {changeToppings(event) 
-            countToppings()}}
+           }}
           >
             Bacon
           </button>
+          <h4>Veggies</h4>
           <p>Price: {price}</p>
         </div>
       </div>
