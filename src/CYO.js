@@ -3,9 +3,8 @@ import React, { useState, useEffect } from "react";
 const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState(null);
   const [toppings, setToppings] = useState([]);
-
+const [toppingPrice, setToppingPrice] = useState(0)
   const [startPrice, setStartPrice] = useState(0);
-  // const [toppingPrice, setToppingPrice] = useState(0)
   const changePizza = (e) => {
     setPizzaSize(e.target.name);
     setStartPrice(parseInt(e.target.value));
@@ -13,10 +12,23 @@ const CYO = () => {
   const changeToppings = (e) => {
     setToppings([...toppings, e.target.value]);
   };
- 
-  let toppingPrice = toppings.length * 1.5;
+
+  const setPrice = () => {
+    if (pizzaSize === "Medium") {
+      setToppingPrice(toppings.length * 1);
+    }
+    if (pizzaSize === "Large") {
+      setToppingPrice(toppings.length * 1.5);
+    }
+    if (pizzaSize === "Extra Large") {
+      setToppingPrice(toppings.length * 2);
+    }
+  };
+
   let price = startPrice + toppingPrice;
 
+  
+ 
   return (
     <div className="container">
       <h1 className="text-center">Create your own pizza</h1>
@@ -33,6 +45,7 @@ const CYO = () => {
             name="Medium"
             onClick={(event) => {
               changePizza(event);
+              setPrice();
             }}
           >
             Medium
@@ -43,6 +56,7 @@ const CYO = () => {
             name="Large"
             onClick={(event) => {
               changePizza(event);
+              setPrice();
             }}
           >
             Large
@@ -53,20 +67,21 @@ const CYO = () => {
             name="Extra Large"
             onClick={(event) => {
               changePizza(event);
+              setPrice();
             }}
           >
             Extra Large
           </button>
           <br />
           <h3>Toppings</h3>
-          
+
           <h4>Meats</h4>
           <button
             type="button"
             value="Peperoni "
             onClick={(event) => {
               changeToppings(event);
-              
+              setPrice();
             }}
           >
             Pepperoni
@@ -76,7 +91,7 @@ const CYO = () => {
             value="Sausage "
             onClick={(event) => {
               changeToppings(event);
-              
+              setPrice();
             }}
           >
             Sausage
@@ -86,7 +101,7 @@ const CYO = () => {
             value="Beef "
             onClick={(event) => {
               changeToppings(event);
-             
+              setPrice();
             }}
           >
             Beef
@@ -96,7 +111,7 @@ const CYO = () => {
             value="Salami "
             onClick={(event) => {
               changeToppings(event);
-              
+              setPrice();
             }}
           >
             Salami
@@ -104,8 +119,10 @@ const CYO = () => {
           <button
             type="button"
             value="Bacon "
-            onClick={(event) => {changeToppings(event) 
-           }}
+            onClick={(event) => {
+              changeToppings(event);
+              setPrice();
+            }}
           >
             Bacon
           </button>
