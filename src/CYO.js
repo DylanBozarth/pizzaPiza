@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 
 const CYO = () => {
-  const [pizzaSize, setPizzaSize] = useState(null);
+  const [pizzaSize, setPizzaSize] = useState('Choose your Pizza Size');
+  
   const [toppings, setToppings] = useState([]);
-const [toppingPrice, setToppingPrice] = useState(0)
+
   const [startPrice, setStartPrice] = useState(0);
+  // const [toppingPrice, setToppingPrice] = useState(0)
   const changePizza = (e) => {
     setPizzaSize(e.target.name);
     setStartPrice(parseInt(e.target.value));
@@ -12,30 +14,19 @@ const [toppingPrice, setToppingPrice] = useState(0)
   const changeToppings = (e) => {
     setToppings([...toppings, e.target.value]);
   };
-
-  const setPrice = () => {
-    if (pizzaSize === "Medium") {
-      setToppingPrice(toppings.length * 1);
-    }
-    if (pizzaSize === "Large") {
-      setToppingPrice(toppings.length * 1.5);
-    }
-    if (pizzaSize === "Extra Large") {
-      setToppingPrice(toppings.length * 2);
-    }
-  };
-
+ 
+  let toppingPrice = toppings.length * 1.5;
   let price = startPrice + toppingPrice;
 
-  
- 
   return (
     <div className="container">
       <h1 className="text-center">Create your own pizza</h1>
       <div className="row">
         <div className="col-sm-8">
           <p>{pizzaSize}</p>
-          <p>{toppings}</p>
+          <p>Price: ${price}</p>
+          <img src="./pizza.png" className="img-fluid pizza" alt="Pizza"></img>
+          <p>Your Toppings:  <br />{toppings}</p>
         </div>
         <div className="col-sm-4">
           <h3>Pizza size</h3>
@@ -45,7 +36,6 @@ const [toppingPrice, setToppingPrice] = useState(0)
             name="Medium"
             onClick={(event) => {
               changePizza(event);
-              setPrice();
             }}
           >
             Medium
@@ -56,7 +46,6 @@ const [toppingPrice, setToppingPrice] = useState(0)
             name="Large"
             onClick={(event) => {
               changePizza(event);
-              setPrice();
             }}
           >
             Large
@@ -67,21 +56,20 @@ const [toppingPrice, setToppingPrice] = useState(0)
             name="Extra Large"
             onClick={(event) => {
               changePizza(event);
-              setPrice();
             }}
           >
             Extra Large
           </button>
           <br />
           <h3>Toppings</h3>
-
+          
           <h4>Meats</h4>
           <button
             type="button"
             value="Peperoni "
             onClick={(event) => {
               changeToppings(event);
-              setPrice();
+              
             }}
           >
             Pepperoni
@@ -91,7 +79,7 @@ const [toppingPrice, setToppingPrice] = useState(0)
             value="Sausage "
             onClick={(event) => {
               changeToppings(event);
-              setPrice();
+              
             }}
           >
             Sausage
@@ -101,7 +89,7 @@ const [toppingPrice, setToppingPrice] = useState(0)
             value="Beef "
             onClick={(event) => {
               changeToppings(event);
-              setPrice();
+             
             }}
           >
             Beef
@@ -111,7 +99,7 @@ const [toppingPrice, setToppingPrice] = useState(0)
             value="Salami "
             onClick={(event) => {
               changeToppings(event);
-              setPrice();
+              
             }}
           >
             Salami
@@ -119,15 +107,28 @@ const [toppingPrice, setToppingPrice] = useState(0)
           <button
             type="button"
             value="Bacon "
-            onClick={(event) => {
-              changeToppings(event);
-              setPrice();
-            }}
+            onClick={(event) => {changeToppings(event) 
+           }}
           >
             Bacon
           </button>
           <h4>Veggies</h4>
-          <p>Price: {price}</p>
+          <button
+            type="button"
+            value="Green Peppers "
+            onClick={(event) => {changeToppings(event) 
+           }}
+          >
+            Green Peppers
+          </button>
+          <button
+            type="button"
+            value="Onions "
+            onClick={(event) => {changeToppings(event) 
+           }}
+          >
+            Onions
+          </button>
         </div>
       </div>
     </div>
