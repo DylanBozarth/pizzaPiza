@@ -18,7 +18,7 @@ const CheckSize = () => {
   if (pizzaSize === "Choose your Pizza Size") {
     alert('You must choose a pizza size')
   }
-  if (toppings.length === 0 ) {
+  else if (toppings.length === 0 ) {
     alert ("Are you sure you don't want toppings?")
   }
   else {
@@ -186,7 +186,7 @@ const CheckSize = () => {
           >
             Mushrooms
           </button>
-          <br /><button className="checkout" onClick={CheckSize}>Checkout</button>
+          <br /><button  className="checkout button btn third" onClick={CheckSize}>Checkout</button>
         </div>
 
         <div className="pricefooter">
