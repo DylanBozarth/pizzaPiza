@@ -14,6 +14,7 @@ const CYO = () => {
   const changeToppings = (e) => {
     setToppings([...toppings, e.target.value]);
   };
+   
 const CheckSize = () => {
   if (pizzaSize === "Choose your Pizza Size") {
     alert('You must choose a pizza size')
@@ -24,6 +25,9 @@ const CheckSize = () => {
   else {
     alert("Sorry, this isn't a real pizza place.")
   }
+}
+const removeTopping = (e) => {
+  Array.remove(e.target.value)
 }
   let toppingPrice = toppings.length * 1.5;
   let price = startPrice + toppingPrice;
