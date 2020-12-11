@@ -1,5 +1,5 @@
 
-import './App.css';
+import './App.scss';
 import CYO from './CYO';
 
 function App() {

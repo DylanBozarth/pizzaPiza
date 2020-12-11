@@ -52,6 +52,7 @@ const CheckSize = () => {
             type="button"
             value="10"
             name="Medium"
+            className="button btn fourth"
             onClick={(event) => {
               changePizza(event);
             }}
@@ -62,6 +63,7 @@ const CheckSize = () => {
             type="button"
             value="12"
             name="Large"
+            className="button btn fourth"
             onClick={(event) => {
               changePizza(event);
             }}
@@ -72,6 +74,7 @@ const CheckSize = () => {
             type="button"
             value="15"
             name="Extra Large"
+            className="button btn fourth"
             onClick={(event) => {
               changePizza(event);
             }}
@@ -85,6 +88,7 @@ const CheckSize = () => {
           <button
             type="button"
             value="Peperoni, "
+            className="button btn first"
             onClick={(event) => {
               changeToppings(event);
             }}
@@ -94,6 +98,7 @@ const CheckSize = () => {
           <button
             type="button"
             value="Sausage, "
+            className="button btn first"
             onClick={(event) => {
               changeToppings(event);
             }}
@@ -103,6 +108,7 @@ const CheckSize = () => {
           <button
             type="button"
             value="Beef, "
+            className="button btn first"
             onClick={(event) => {
               changeToppings(event);
             }}
@@ -112,6 +118,7 @@ const CheckSize = () => {
           <button
             type="button"
             value="Salami, "
+            className="button btn first"
             onClick={(event) => {
               changeToppings(event);
             }}
@@ -121,6 +128,7 @@ const CheckSize = () => {
           <button
             type="button"
             value="Bacon, "
+            className="button btn first"
             onClick={(event) => {
               changeToppings(event);
             }}
@@ -131,6 +139,7 @@ const CheckSize = () => {
           <button
             type="button"
             value="Green Peppers, "
+            className="button btn fifth"
             onClick={(event) => {
               changeToppings(event);
             }}
@@ -140,6 +149,7 @@ const CheckSize = () => {
           <button
             type="button"
             value="Onions, "
+            className="button btn fifth"
             onClick={(event) => {
               changeToppings(event);
             }}
@@ -149,6 +159,7 @@ const CheckSize = () => {
           <button
             type="button"
             value="Tomatoes, "
+            className="button btn fifth"
             onClick={(event) => {
               changeToppings(event);
             }}
@@ -158,6 +169,7 @@ const CheckSize = () => {
           <button
             type="button"
             value="Artichokes, "
+            className="button btn fifth"
             onClick={(event) => {
               changeToppings(event);
             }}
@@ -166,6 +178,7 @@ const CheckSize = () => {
           </button>
           <button
             type="button"
+            className="button btn fifth"
             value="Mushrooms, "
             onClick={(event) => {
               changeToppings(event);
