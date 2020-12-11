@@ -27,7 +27,15 @@ const CheckSize = () => {
   }
 }
 const removeTopping = (e) => {
-  Array.remove(e.target.value)
+  toppings.splice(e.target.value)
+}
+const ToppingPlusMinus = (e) => {
+  if (toppings.includes(e.target.value, 1)) {
+    removeTopping(e)
+  }
+  else {
+    changeToppings(e);
+  }
 }
   let toppingPrice = toppings.length * 1.5;
   let price = startPrice + toppingPrice;
@@ -104,7 +112,7 @@ const removeTopping = (e) => {
             value="Sausage, "
             className="button btn first"
             onClick={(event) => {
-              changeToppings(event);
+              ToppingPlusMinus(event);
             }}
           >
             Sausage
