@@ -4,7 +4,7 @@ const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState("Choose your Pizza Size");
 
   const [toppings, setToppings] = useState([]);
-
+  const [isActive, setActive] = useState("false");
   const [startPrice, setStartPrice] = useState(0);
   // const [toppingPrice, setToppingPrice] = useState(0)
   const addPizza = (e) => {
@@ -30,18 +30,25 @@ const ToppingPlusMinus = (e) => {
 
   if (position !== -1) {
     return removeTopping(value);
+    
   }
 
   return addTopping(value);
+  
+};
+const handleToggle = () => {
+  setActive(!isActive);
 };
 
 const removeTopping = (value) => {
   // We need to filter out the value from the array and return the expected new value
   setToppings(toppings.filter((topping) => topping !== value));
+  handleToggle();
 };
 
 const addTopping = (value) => {
   setToppings([...toppings, value]);
+  handleToggle();
 };
 
   let toppingPrice = toppings.length * 1.5;
