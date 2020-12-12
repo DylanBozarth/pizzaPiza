@@ -43,7 +43,7 @@ $turquoise: #1abc9c;
   background-color: transparent;
   border: 2px solid $red;
   border-radius: 0.6em;
-  color: $red;
+  color: white;
   cursor: pointer;
   
   align-self: center;
@@ -59,15 +59,36 @@ $turquoise: #1abc9c;
 
   
 }
+.btn2 {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: $green;
+  border: 2px solid $green;
+  border-radius: 0.6em;
+  color: white;
+  cursor: pointer;
+  
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 5px;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 
+  
+}
 //BUTTON 1
 .first {
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-  
+  color: white;
 }
 .firstActive {
-  color: black;
-  box-shadow: 0 0 40px 40px $red inset;
+  
+  background-color: red;
 }
 
 // BUTTON 4
@@ -101,29 +122,19 @@ $turquoise: #1abc9c;
   z-index: 1;
   transition: color 150ms ease-in-out;
   
-  .fifthActive {
-    content: '';
-    border-color: $green;
-  // border: 0;
-  border-radius: 0;
-  color: $green !important;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  transition: color 150ms ease-in-out;
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 100%;
-    background: $green;
-    z-index: -1;
-    transition: width 150ms ease-in-out;
-  }
+  
   
   
   
 }
 
+.fifthActive {
+    
+  border-color: $green !important;
+
+
+
+
+  background: $green !important;
+ 
+}
