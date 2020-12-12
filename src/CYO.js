@@ -114,7 +114,7 @@ const addTopping = (value) => {
           <button
             type="button"
             value="Peperoni, "
-            className="button btn first"
+            className={ isActive ? "button btn first" : "button btn firstActive"} 
             onClick={(event) => {
               ToppingPlusMinus(event);
             }}
@@ -124,7 +124,7 @@ const addTopping = (value) => {
           <button
             type="button"
             value="Sausage, "
-            className="button btn first"
+            className={ isActive ? "button btn first" : "button btn firstActive"}
             onClick={(event) => {
               ToppingPlusMinus(event);
             }}
