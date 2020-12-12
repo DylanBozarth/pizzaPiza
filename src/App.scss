@@ -57,11 +57,7 @@ $turquoise: #1abc9c;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 
-  &:hover,
-  &:focus {
-    color: #fff;
-    outline: 0;
-  }
+  
 }
 
 //BUTTON 1
@@ -90,6 +86,9 @@ $turquoise: #1abc9c;
     background-position: 0;
   }
 }
+.forthActive {
+  background-position: 0;
+}
 
 //BUTTON 5
 .fifth {
@@ -102,8 +101,16 @@ $turquoise: #1abc9c;
   z-index: 1;
   transition: color 150ms ease-in-out;
   
-  &:after {
+  .fifthActive {
     content: '';
+    border-color: $green;
+  // border: 0;
+  border-radius: 0;
+  color: $green !important;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 150ms ease-in-out;
     position: absolute;
     display: block;
     top: 0;
@@ -116,11 +123,7 @@ $turquoise: #1abc9c;
     transition: width 150ms ease-in-out;
   }
   
-  &:hover {
-    color: #fff;
-    &:after {
-      width: 110%;
-    }
-  }
+  
+  
 }
 

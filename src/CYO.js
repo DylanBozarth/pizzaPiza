@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import ButtonClickable from './button'
+import ButtonClickable2 from "./button2";
 const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState("Choose your Pizza Size");
 
   const [toppings, setToppings] = useState([]);
-  const [isActive, setActive] = useState("false");
   const [startPrice, setStartPrice] = useState(0);
   // const [toppingPrice, setToppingPrice] = useState(0)
   const addPizza = (e) => {
@@ -110,98 +110,17 @@ const addTopping = (value) => {
           <h4>Meats</h4>
            <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Pepperoni" value="Pepperoni, " ></ButtonClickable> 
            <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Sausage" value="Sausage, " ></ButtonClickable> 
-          <button
-            type="button"
-            value="Sausage, "
-            className={ isActive ? "button btn first" : "button btn firstActive"}
-            onClick={(event) => {
-              ToppingPlusMinus(event);
-            }}
-          >
-            Sausage
-          </button>
-          <button
-            type="button"
-            value="Beef, "
-            className="button btn first"
-            onClick={(event) => {
-              ToppingPlusMinus(event);
-            }}
-          >
-            Beef
-          </button>
-          <button
-            type="button"
-            value="Salami, "
-            className="button btn first"
-            onClick={(event) => {
-              ToppingPlusMinus(event);
-            }}
-          >
-            Salami
-          </button>
-          <button
-            type="button"
-            value="Bacon, "
-            className="button btn first"
-            onClick={(event) => {
-              ToppingPlusMinus(event);
-            }}
-          >
-            Bacon
-          </button>
+           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Beef" value="Beef, " ></ButtonClickable> 
+           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Salami" value="Salami, " ></ButtonClickable> 
+           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Bacon" value="Bacon, " ></ButtonClickable> 
+          
           <h4>Veggies</h4>
-          <button
-            type="button"
-            value="Green Peppers, "
-            className="button btn fifth"
-            onClick={(event) => {
-              ToppingPlusMinus(event);
-            }}
-          >
-            Green Peppers
-          </button>
-          <button
-            type="button"
-            value="Onions, "
-            className="button btn fifth"
-            onClick={(event) => {
-              ToppingPlusMinus(event);
-            }}
-          >
-            Onions
-          </button>
-          <button
-            type="button"
-            value="Tomatoes, "
-            className="button btn fifth"
-            onClick={(event) => {
-              ToppingPlusMinus(event);
-            }}
-          >
-            Tomatoes
-          </button>
-          <button
-            type="button"
-            value="Artichokes, "
-            className="button btn fifth"
-            onClick={(event) => {
-              ToppingPlusMinus(event);
-            }}
-          >
-           Artichokes
-          </button>
-          <button
-            type="button"
-            className="button btn fifth"
-            value="Mushrooms, "
-            onClick={(event) => {
-              ToppingPlusMinus(event);
-            }}
-          >
-            Mushrooms
-          </button>
-          <br /><button  className="checkout button btn third" onClick={CheckSize}>Checkout</button>
+          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Green Peppers" value="Green Peppers, " ></ButtonClickable2> 
+          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Onions" value="Onions, " ></ButtonClickable2>
+          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Tomatoes" value="Tomatoes, " ></ButtonClickable2>
+          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Artichokes" value="Artichokes, " ></ButtonClickable2>
+          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Mushrooms" value="Mushrooms, " ></ButtonClickable2>
+          <br /><button  className="checkout button btn fourth" onClick={CheckSize}>Checkout</button>
         </div>
 
         <div className="pricefooter">
