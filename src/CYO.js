@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import ButtonClickable from "./button";
-
+import ButtonClickable from './button'
 const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState("Choose your Pizza Size");
 
@@ -37,19 +36,16 @@ const ToppingPlusMinus = (e) => {
   return addTopping(value);
   
 };
-const handleToggle = () => {
-  setActive(!isActive);
-};
 
 const removeTopping = (value) => {
   // We need to filter out the value from the array and return the expected new value
   setToppings(toppings.filter((topping) => topping !== value));
-  handleToggle();
+  //handleToggle();
 };
 
 const addTopping = (value) => {
   setToppings([...toppings, value]);
-  handleToggle();
+ // handleToggle();
 };
 
   let toppingPrice = toppings.length * 1.5;
@@ -112,7 +108,8 @@ const addTopping = (value) => {
           <h3>Toppings</h3>
 
           <h4>Meats</h4>
-          <ButtonClickable onCLick={ToppingPlusMinus} value="Peperoni, " />
+           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Pepperoni" value="Pepperoni, " ></ButtonClickable> 
+           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Sausage" value="Sausage, " ></ButtonClickable> 
           <button
             type="button"
             value="Sausage, "
