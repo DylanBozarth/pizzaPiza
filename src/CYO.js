@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ButtonClickable from "./button";
 
 const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState("Choose your Pizza Size");
@@ -111,16 +112,7 @@ const addTopping = (value) => {
           <h3>Toppings</h3>
 
           <h4>Meats</h4>
-          <button
-            type="button"
-            value="Peperoni, "
-            className={ isActive ? "button btn first" : "button btn firstActive"} 
-            onClick={(event) => {
-              ToppingPlusMinus(event);
-            }}
-          >
-            Pepperoni
-          </button>
+          <ButtonClickable onCLick={ToppingPlusMinus} value="Peperoni, " />
           <button
             type="button"
             value="Sausage, "
