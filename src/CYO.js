@@ -7,13 +7,11 @@ const CYO = () => {
 
   const [startPrice, setStartPrice] = useState(0);
   // const [toppingPrice, setToppingPrice] = useState(0)
-  const changePizza = (e) => {
+  const addPizza = (e) => {
     setPizzaSize(e.target.name);
     setStartPrice(parseInt(e.target.value));
   };
-  const changeToppings = (e) => {
-    setToppings([...toppings, e.target.value]);
-  };
+  
    
 const CheckSize = () => {
   if (pizzaSize === "Choose your Pizza Size") {
@@ -26,17 +24,26 @@ const CheckSize = () => {
     alert("Sorry, this isn't a real pizza place.")
   }
 }
-const removeTopping = (e) => {
-  toppings.splice(e.target.value)
-}
 const ToppingPlusMinus = (e) => {
-  if (toppings.includes(e.target.value, 1)) {
-    removeTopping(e)
+  const { value } = e.target;
+  const position = toppings.indexOf(value);
+
+  if (position !== -1) {
+    return removeTopping(value);
   }
-  else {
-    changeToppings(e);
-  }
-}
+
+  return addTopping(value);
+};
+
+const removeTopping = (value) => {
+  // We need to filter out the value from the array and return the expected new value
+  setToppings(toppings.filter((topping) => topping !== value));
+};
+
+const addTopping = (value) => {
+  setToppings([...toppings, value]);
+};
+
   let toppingPrice = toppings.length * 1.5;
   let price = startPrice + toppingPrice;
 
@@ -66,7 +73,7 @@ const ToppingPlusMinus = (e) => {
             name="Medium"
             className="button btn fourth"
             onClick={(event) => {
-              changePizza(event);
+              addPizza(event);
             }}
           >
             Medium
@@ -77,7 +84,7 @@ const ToppingPlusMinus = (e) => {
             name="Large"
             className="button btn fourth"
             onClick={(event) => {
-              changePizza(event);
+              addPizza(event);
             }}
           >
             Large
@@ -88,7 +95,7 @@ const ToppingPlusMinus = (e) => {
             name="Extra Large"
             className="button btn fourth"
             onClick={(event) => {
-              changePizza(event);
+              addPizza(event);
             }}
           >
             Extra Large
@@ -102,7 +109,7 @@ const ToppingPlusMinus = (e) => {
             value="Peperoni, "
             className="button btn first"
             onClick={(event) => {
-              changeToppings(event);
+              ToppingPlusMinus(event);
             }}
           >
             Pepperoni
@@ -122,7 +129,7 @@ const ToppingPlusMinus = (e) => {
             value="Beef, "
             className="button btn first"
             onClick={(event) => {
-              changeToppings(event);
+              ToppingPlusMinus(event);
             }}
           >
             Beef
@@ -132,7 +139,7 @@ const ToppingPlusMinus = (e) => {
             value="Salami, "
             className="button btn first"
             onClick={(event) => {
-              changeToppings(event);
+              ToppingPlusMinus(event);
             }}
           >
             Salami
@@ -142,7 +149,7 @@ const ToppingPlusMinus = (e) => {
             value="Bacon, "
             className="button btn first"
             onClick={(event) => {
-              changeToppings(event);
+              ToppingPlusMinus(event);
             }}
           >
             Bacon
@@ -153,7 +160,7 @@ const ToppingPlusMinus = (e) => {
             value="Green Peppers, "
             className="button btn fifth"
             onClick={(event) => {
-              changeToppings(event);
+              ToppingPlusMinus(event);
             }}
           >
             Green Peppers
@@ -163,7 +170,7 @@ const ToppingPlusMinus = (e) => {
             value="Onions, "
             className="button btn fifth"
             onClick={(event) => {
-              changeToppings(event);
+              ToppingPlusMinus(event);
             }}
           >
             Onions
@@ -173,7 +180,7 @@ const ToppingPlusMinus = (e) => {
             value="Tomatoes, "
             className="button btn fifth"
             onClick={(event) => {
-              changeToppings(event);
+              ToppingPlusMinus(event);
             }}
           >
             Tomatoes
@@ -183,7 +190,7 @@ const ToppingPlusMinus = (e) => {
             value="Artichokes, "
             className="button btn fifth"
             onClick={(event) => {
-              changeToppings(event);
+              ToppingPlusMinus(event);
             }}
           >
            Artichokes
@@ -193,7 +200,7 @@ const ToppingPlusMinus = (e) => {
             className="button btn fifth"
             value="Mushrooms, "
             onClick={(event) => {
-              changeToppings(event);
+              ToppingPlusMinus(event);
             }}
           >
             Mushrooms
