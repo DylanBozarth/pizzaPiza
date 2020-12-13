@@ -86,9 +86,15 @@ $turquoise: #1abc9c;
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   color: white;
 }
+.first:hover {
+  color: white;
+}
 .firstActive {
   
   background-color: red;
+  &:hover {
+    color: white;
+  }
 }
 
 // BUTTON 4
@@ -104,11 +110,17 @@ $turquoise: #1abc9c;
   transition: background 300ms ease-in-out;
   
   &:hover {
+    color: white;
     background-position: 0;
   }
 }
 .forthActive {
+  color: white;
   background-position: 0;
+}
+.forthActive:hover {
+  background-position: 0;
+  color: white;
 }
 
 //BUTTON 5
@@ -124,17 +136,23 @@ $turquoise: #1abc9c;
   
   
   
-  
+  &:hover {
+    color: white;
+  }
   
 }
-
+.fifth:hover {
+color: white;
+}
 .fifthActive {
-    
+    color: white;
   border-color: $green !important;
 
 
 
 
   background: $green !important;
- 
+ &:hover {
+   color: white;
+ }
 }
