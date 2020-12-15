@@ -67,7 +67,12 @@ const addTopping = (value) => {
           <h3>{pizzaSize}</h3>
           <p>
             Your Toppings: <br />
-            {toppings}
+           
+            {toppings
+          .filter((x) => x.name !== "")
+          .map((toppings) => (
+            <img src={toppings} alt="topping" width="100px" height="100px"></img>
+          ))}
           </p>
         </div>
         <div className="col-sm-4">
@@ -109,18 +114,18 @@ const addTopping = (value) => {
           <h3>Toppings</h3>
 
           <h4>Meats</h4>
-           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Pepperoni" value="Pepperoni, " ></ButtonClickable> 
-           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Sausage" value="Sausage, " ></ButtonClickable> 
-           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Beef" value="Beef, " ></ButtonClickable> 
-           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Salami" value="Salami, " ></ButtonClickable> 
-           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Bacon" value="Bacon, " ></ButtonClickable> 
+           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Pepperoni" value="./toppings/pepperoni.png" ></ButtonClickable> 
+           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Sausage" value="./toppings/sausage.png" ></ButtonClickable> 
+           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Beef" value="./toppings/beef.png" ></ButtonClickable> 
+           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Salami" value="./toppings/salami.png" ></ButtonClickable> 
+           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Bacon" value="./toppings/bacon.png" ></ButtonClickable> 
           
           <h4>Veggies</h4>
-          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Green Peppers" value="Green Peppers, " ></ButtonClickable2> 
-          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Onions" value="Onions, " ></ButtonClickable2>
-          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Tomatoes" value="Tomatoes, " ></ButtonClickable2>
-          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Artichokes" value="Artichokes, " ></ButtonClickable2>
-          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Mushrooms" value="Mushrooms, " ></ButtonClickable2>
+          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Green Peppers" value="./toppings/greenpeppers.png" ></ButtonClickable2> 
+          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Onions" value="./toppings/onions.png" ></ButtonClickable2>
+          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Tomatoes" value="./toppings/tomatoes.png" ></ButtonClickable2>
+          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Artichokes" value="./toppings/artichokes.png" ></ButtonClickable2>
+          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Mushrooms" value="./toppings/mushrooms.png" ></ButtonClickable2>
           <br /><button  className="checkout button btn fourth" onClick={CheckSize}>Checkout</button>
         </div>
 
