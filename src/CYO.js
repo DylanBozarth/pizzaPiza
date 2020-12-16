@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import ButtonClickable from './button'
 import ButtonClickable2 from "./button2";
-import ButtonClickable3 from './button3'
 const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState("Choose your Pizza Size");
 
   const [toppings, setToppings] = useState([]);
   const [startPrice, setStartPrice] = useState(0);
-  // const [toppingPrice, setToppingPrice] = useState(0)
   const addPizza = (e) => {
     setPizzaSize(e.target.name);
     setStartPrice(parseInt(e.target.value));
@@ -112,7 +110,7 @@ const addTopping = (value) => {
           </button>
           <br />
           <h3>Toppings</h3>
-
+<p>Toppings are $1.50 each</p>
           <h4>Meats</h4>
            <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Pepperoni" value="./toppings/pepperoni.png" ></ButtonClickable> 
            <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Sausage" value="./toppings/sausage.png" ></ButtonClickable> 
