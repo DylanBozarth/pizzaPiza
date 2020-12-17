@@ -6,7 +6,7 @@ $yellow: #f1c40f;
 $purple: #8e44ad;
 $turquoise: #1abc9c;
 body {
-  background-color: 		#90092b;
+  background-color: 		#008744;
   height: 120vh;
 }
 .App {
@@ -15,24 +15,27 @@ body {
   margin-top: 10vh;
 }
 .white {
-  color: white;
+  color: 		white;
   font-weight: bolder;
 }
 .pizza {
-  width: 400px;
-  height: 350px;
+  width: 320px;
+  height: 260px;
 }
 .CYO {
   margin-bottom: 10vh;
+}
+.CYO {
+  background-color: 		#2a623d;
 }
 .pricefooter {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
-  background-color: #ffe3e3;
+  background-color: 	#d62d20;
  font-weight: bolder;
-  color: black;
+  color: white;
   font-size: 4vh;
 }
 .checkout {
@@ -114,7 +117,7 @@ body {
   overflow: hidden;
   z-index: 1;
   transition: color 150ms ease-in-out;
-  
+  color: white;
   
   
   &:hover {
