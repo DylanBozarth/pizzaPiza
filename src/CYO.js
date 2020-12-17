@@ -52,7 +52,7 @@ const addTopping = (value) => {
 
   return (
     <div className="container CYO">
-      <h2 className="text-center">Create your own pizza</h2>
+      <h2 className="text-center white">Create your own pizza</h2>
       <div className="row">
         <div className="col-sm-8">
           <div className="">
@@ -62,19 +62,19 @@ const addTopping = (value) => {
               alt="Pizza"
             ></img>
           </div>
-          <h3>{pizzaSize}</h3>
-          <p>
+          <h3  className="white">{pizzaSize}</h3>
+          <p className="white">
             Your Toppings: <br />
-           
+           <div className="col-lg-12">
             {toppings
           .filter((x) => x.name !== "")
           .map((toppings) => (
             <img src={toppings} alt="topping" width="100px" height="100px"></img>
           ))}
-          </p>
+         </div> </p>
         </div>
         <div className="col-sm-4">
-          <h3>Pizza size</h3>
+          <h3 className="white">Pizza size</h3>
           <button
             type="button"
             value="10"
@@ -109,16 +109,16 @@ const addTopping = (value) => {
             Extra Large
           </button>
           <br />
-          <h3>Toppings</h3>
-<p>Toppings are $1.50 each</p>
-          <h4>Meats</h4>
+          <h3 className="white">Toppings</h3>
+<p className="white">Toppings are $1.50 each</p>
+          <h4 className="white">Meats</h4>
            <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Pepperoni" value="./toppings/pepperoni.png" ></ButtonClickable> 
            <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Sausage" value="./toppings/sausage.png" ></ButtonClickable> 
            <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Beef" value="./toppings/beef.png" ></ButtonClickable> 
            <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Salami" value="./toppings/salami.png" ></ButtonClickable> 
            <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Bacon" value="./toppings/bacon.png" ></ButtonClickable> 
           
-          <h4>Veggies</h4>
+          <h4 className="white">Veggies</h4>
           <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Green Peppers" value="./toppings/greenpeppers.png" ></ButtonClickable2> 
           <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Onions" value="./toppings/onions.png" ></ButtonClickable2>
           <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Tomatoes" value="./toppings/tomatoes.png" ></ButtonClickable2>
@@ -128,7 +128,7 @@ const addTopping = (value) => {
         </div>
 
         <div className="pricefooter">
-          <p>Price: ${price}</p>
+          <p className="price">Price: ${price}</p>
 
         </div>
       </div>

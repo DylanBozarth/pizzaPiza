@@ -5,17 +5,18 @@ $blue: #3498db;
 $yellow: #f1c40f;
 $purple: #8e44ad;
 $turquoise: #1abc9c;
-
+body {
+  background-color: 		#90092b;
+  height: 120vh;
+}
 .App {
   text-align: center;
+
+  margin-top: 10vh;
 }
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
- 
-  font-size: calc(10px + 2vmin);
+.white {
   color: white;
+  font-weight: bolder;
 }
 .pizza {
   width: 400px;
@@ -27,10 +28,12 @@ $turquoise: #1abc9c;
 .pricefooter {
   position: fixed;
   left: 0;
-  bottom: 0;
+  top: 0;
   width: 100%;
-  background-color: darkred;
-  color: white;
+  background-color: #ffe3e3;
+ font-weight: bolder;
+  color: black;
+  font-size: 4vh;
 }
 .checkout {
   margin: 2rem;
