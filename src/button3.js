@@ -9,6 +9,7 @@ const ButtonClickable3 = (props) => {
      return <button
                type="button"
                value={props.value}
+               name={props.name}
                className={isActive ? "button btn fourth" : "button btn fourthActive"}
                onClick={handleToggle}
              >

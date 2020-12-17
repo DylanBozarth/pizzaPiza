@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import ButtonClickable from './button'
 import ButtonClickable2 from "./button2";
+import ButtonClickable3 from './button3'
 const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState("Choose your Pizza Size");
-
+  const [isActive, setActive] = useState("false");
   const [toppings, setToppings] = useState([]);
   const [startPrice, setStartPrice] = useState(0);
   const addPizza = (e) => {
@@ -75,39 +76,9 @@ const addTopping = (value) => {
         </div>
         <div className="col-sm-4">
           <h3 className="white">Pizza size</h3>
-          <button
-            type="button"
-            value="10"
-            name="Medium"
-            className="button btn fourth"
-            onClick={(event) => {
-              addPizza(event);
-            }}
-          >
-            Medium
-          </button>
-          <button
-            type="button"
-            value="12"
-            name="Large"
-            className="button btn fourth"
-            onClick={(event) => {
-              addPizza(event);
-            }}
-          >
-            Large
-          </button>
-          <button
-            type="button"
-            value="15"
-            name="Extra Large"
-            className="button btn fourth"
-            onClick={(event) => {
-              addPizza(event);
-            }}
-          >
-            Extra Large
-          </button>
+          <ButtonClickable3 name="Medium" value="10" onClick={(event) => addPizza(event)}></ButtonClickable3>
+          <ButtonClickable3 name="Large" value="15" onClick={(event) => addPizza(event)}></ButtonClickable3>
+          <ButtonClickable3 name="Extra Large" value="20" onClick={(event) => addPizza(event)}></ButtonClickable3>
           <br />
           <h3 className="white">Toppings</h3>
 <p className="white">Toppings are $1.50 each</p>
@@ -124,12 +95,15 @@ const addTopping = (value) => {
           <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Tomatoes" value="./toppings/tomatoes.png" ></ButtonClickable2>
           <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Artichokes" value="./toppings/artichokes.png" ></ButtonClickable2>
           <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Mushrooms" value="./toppings/mushrooms.png" ></ButtonClickable2>
-          <br /><button  className="checkout button btn fourth" onClick={CheckSize}>Checkout</button>
+          <br />
         </div>
 
         <div className="pricefooter">
           <p className="price">Price: ${price}</p>
 
+        </div>
+        <div className="pricefooter2">
+        <button  className="checkout button btn fourth" onClick={CheckSize}>Checkout</button>
         </div>
       </div>
     </div>
