@@ -4,16 +4,15 @@ import ButtonClickable2 from "./button2";
 import ButtonClickable3 from './button3'
 const CYO = () => {
 
-const [selectedPizzaSize, setSelectedPizzaSize] = useState()
+
   const [pizzaSize, setPizzaSize] = useState("Choose your Pizza Size");
   const [isActive, setActive] = useState("false");
   const [toppings, setToppings] = useState([]);
-  const [isActive, setActive] = useState("false");
   const [startPrice, setStartPrice] = useState(0);
   const addPizza = (e) => {
     setPizzaSize(e.target.name);
     setStartPrice(parseInt(e.target.value));
-    ResetButtons()
+   
     setActive(!isActive);
   };
   
@@ -81,9 +80,9 @@ const addTopping = (value) => {
         </div>
         <div className="col-sm-4">
           <h3 className="white">Pizza size</h3>
-          <ButtonClickable3  name="Medium"  className={isActive ? "button btn fourth" : "button btn fourthActive"} value="10" onClick={(event) => addPizza(event)}></ButtonClickable3>
-          <ButtonClickable3 name="Large"   className={isActive ? "button btn fourth" : "button btn fourthActive"}  value="15"  onClick={(event) => addPizza(event)}></ButtonClickable3>
-          <ButtonClickable3 name="Extra Large"  className={isActive ? "button btn fourth" : "button btn fourthActive"}  value="20"  onClick={(event) => addPizza(event)}></ButtonClickable3>
+          <button name="Medium"  className={isActive ? "button btn fourth" : "button btn fourthActive"} value="10" onClick={(event) => addPizza(event)}>Medium</button>
+          <button name="Large"  className={isActive ? "button btn fourth" : "button btn fourthActive"} value="15" onClick={(event) => addPizza(event)}>Large</button>
+          <button name="XL"  className={isActive ? "button btn fourth" : "button btn fourthActive"} value="20" onClick={(event) => addPizza(event)}>Extra large</button>
           <br />
           <h3 className="white">Toppings</h3>
 <p className="white">Toppings are $1.50 each</p>
