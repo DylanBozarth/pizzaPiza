@@ -1,56 +1,64 @@
 import React, { useState } from "react";
-import ButtonClickable from './button'
+import ButtonClickable from "./button";
 import ButtonClickable2 from "./button2";
-import ButtonClickable3 from './button3'
 const CYO = () => {
-
-
   const [pizzaSize, setPizzaSize] = useState("Choose your Pizza Size");
   const [isActive, setActive] = useState("false");
+  const [isActive2, setActive2] = useState("false");
+  const [isActive3, setActive3] = useState("false");
   const [toppings, setToppings] = useState([]);
   const [startPrice, setStartPrice] = useState(0);
   const addPizza = (e) => {
     setPizzaSize(e.target.name);
     setStartPrice(parseInt(e.target.value));
-   
-    setActive(!isActive);
+    ButtonStuff();
+    console.log(isActive3)
   };
-  
-   
-const CheckSize = () => {
-  if (pizzaSize === "Choose your Pizza Size") {
-    alert('You must choose a pizza size')
-  }
-  else if (toppings.length === 0 ) {
-    alert ("Are you sure you don't want toppings?")
-  }
-  else {
-    alert("Sorry, this isn't a real pizza place.")
-  }
+  const ButtonStuff = () => {
+if (isActive === "true") {
+  setActive2("false")
+  setActive3("false")
 }
-const ToppingPlusMinus = (e) => {
-  const { value } = e.target;
-  const position = toppings.indexOf(value);
+if (isActive2 === "true") {
+  setActive("false")
+  setActive3("false")
+}
+if (isActive3 === "true") {
+  setActive("false")
+  setActive2("false")
+}
+  };
 
-  if (position !== -1) {
-    return removeTopping(value);
-    
-  }
+  const CheckSize = () => {
+    if (pizzaSize === "Choose your Pizza Size") {
+      alert("You must choose a pizza size");
+    } else if (toppings.length === 0) {
+      alert("Are you sure you don't want toppings?");
+    } else {
+      alert("Sorry, this isn't a real pizza place.");
+    }
+  };
+  const ToppingPlusMinus = (e) => {
+    const { value } = e.target;
+    const position = toppings.indexOf(value);
 
-  return addTopping(value);
-  
-};
+    if (position !== -1) {
+      return removeTopping(value);
+    }
 
-const removeTopping = (value) => {
-  // We need to filter out the value from the array and return the expected new value
-  setToppings(toppings.filter((topping) => topping !== value));
-  //handleToggle();
-};
+    return addTopping(value);
+  };
 
-const addTopping = (value) => {
-  setToppings([...toppings, value]);
- // handleToggle();
-};
+  const removeTopping = (value) => {
+    // We need to filter out the value from the array and return the expected new value
+    setToppings(toppings.filter((topping) => topping !== value));
+    //handleToggle();
+  };
+
+  const addTopping = (value) => {
+    setToppings([...toppings, value]);
+    // handleToggle();
+  };
 
   let toppingPrice = toppings.length * 1.5;
   let price = startPrice + toppingPrice;
@@ -67,47 +75,143 @@ const addTopping = (value) => {
               alt="Pizza"
             ></img>
           </div>
-          <h3  className="white">{pizzaSize}</h3>
+          <h3 className="white">{pizzaSize}</h3>
           <p className="white">
             Your Toppings: <br />
-           <div className="col-lg-12">
-            {toppings
-          .filter((x) => x.name !== "")
-          .map((toppings) => (
-            <img src={toppings} alt="topping" width="100px" height="100px"></img>
-          ))}
-         </div> </p>
+            <div className="col-lg-12">
+              {toppings
+                .filter((x) => x.name !== "")
+                .map((toppings) => (
+                  <img
+                    src={toppings}
+                    alt="topping"
+                    width="100px"
+                    height="100px"
+                  ></img>
+                ))}
+            </div>{" "}
+          </p>
         </div>
         <div className="col-sm-4">
           <h3 className="white">Pizza size</h3>
-          <button name="Medium"  className={isActive ? "button btn fourth" : "button btn fourthActive"} value="10" onClick={(event) => addPizza(event)}>Medium</button>
-          <button name="Large"  className={isActive ? "button btn fourth" : "button btn fourthActive"} value="15" onClick={(event) => addPizza(event)}>Large</button>
-          <button name="XL"  className={isActive ? "button btn fourth" : "button btn fourthActive"} value="20" onClick={(event) => addPizza(event)}>Extra large</button>
+          <button
+            name="Medium"
+            className={
+              isActive ? "button btn fourth" : "button btn fourthActive"
+            }
+            value="10"
+            onClick={(event) => {addPizza(event);  setActive("true")}}
+          >
+            Medium
+          </button>
+          <button
+            name="Large"
+            className={
+              isActive2 ? "button btn fourth" : "button btn fourthActive"
+            }
+            value="15"
+            onClick={(event) => {addPizza(event); setActive2("true")}}
+          >
+            Large
+          </button>
+          <button
+            name="Extra Large"
+            className={
+              isActive3 ? "button btn fourth" : "button btn fourthActive"
+            }
+            value="20"
+            onClick={(event) => {
+              addPizza(event); setActive3("true");
+            }}
+          >
+            Extra large
+          </button>
           <br />
           <h3 className="white">Toppings</h3>
-<p className="white">Toppings are $1.50 each</p>
+          <p className="white">Toppings are $1.50 each</p>
           <h4 className="white">Meats</h4>
-           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Pepperoni" value="./toppings/pepperoni.png" ></ButtonClickable> 
-           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Sausage" value="./toppings/sausage.png" ></ButtonClickable> 
-           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Beef" value="./toppings/beef.png" ></ButtonClickable> 
-           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Salami" value="./toppings/salami.png" ></ButtonClickable> 
-           <ButtonClickable onClick={(event) => {ToppingPlusMinus(event)}}  name="Bacon" value="./toppings/bacon.png" ></ButtonClickable> 
-          
+          <ButtonClickable
+            onClick={(event) => {
+              ToppingPlusMinus(event);
+            }}
+            name="Pepperoni"
+            value="./toppings/pepperoni.png"
+          ></ButtonClickable>
+          <ButtonClickable
+            onClick={(event) => {
+              ToppingPlusMinus(event);
+            }}
+            name="Sausage"
+            value="./toppings/sausage.png"
+          ></ButtonClickable>
+          <ButtonClickable
+            onClick={(event) => {
+              ToppingPlusMinus(event);
+            }}
+            name="Beef"
+            value="./toppings/beef.png"
+          ></ButtonClickable>
+          <ButtonClickable
+            onClick={(event) => {
+              ToppingPlusMinus(event);
+            }}
+            name="Salami"
+            value="./toppings/salami.png"
+          ></ButtonClickable>
+          <ButtonClickable
+            onClick={(event) => {
+              ToppingPlusMinus(event);
+            }}
+            name="Bacon"
+            value="./toppings/bacon.png"
+          ></ButtonClickable>
+
           <h4 className="white">Veggies</h4>
-          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Green Peppers" value="./toppings/greenpeppers.png" ></ButtonClickable2> 
-          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Onions" value="./toppings/onions.png" ></ButtonClickable2>
-          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Tomatoes" value="./toppings/tomatoes.png" ></ButtonClickable2>
-          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Artichokes" value="./toppings/artichokes.png" ></ButtonClickable2>
-          <ButtonClickable2 onClick={(event) => {ToppingPlusMinus(event)}}  name="Mushrooms" value="./toppings/mushrooms.png" ></ButtonClickable2>
+          <ButtonClickable2
+            onClick={(event) => {
+              ToppingPlusMinus(event);
+            }}
+            name="Green Peppers"
+            value="./toppings/greenpeppers.png"
+          ></ButtonClickable2>
+          <ButtonClickable2
+            onClick={(event) => {
+              ToppingPlusMinus(event);
+            }}
+            name="Onions"
+            value="./toppings/onions.png"
+          ></ButtonClickable2>
+          <ButtonClickable2
+            onClick={(event) => {
+              ToppingPlusMinus(event);
+            }}
+            name="Tomatoes"
+            value="./toppings/tomatoes.png"
+          ></ButtonClickable2>
+          <ButtonClickable2
+            onClick={(event) => {
+              ToppingPlusMinus(event);
+            }}
+            name="Artichokes"
+            value="./toppings/artichokes.png"
+          ></ButtonClickable2>
+          <ButtonClickable2
+            onClick={(event) => {
+              ToppingPlusMinus(event);
+            }}
+            name="Mushrooms"
+            value="./toppings/mushrooms.png"
+          ></ButtonClickable2>
           <br />
         </div>
 
         <div className="pricefooter">
           <p className="price">Price: ${price}</p>
-
         </div>
         <div className="pricefooter2">
-        <button  className="checkout button btn fourth" onClick={CheckSize}>Checkout</button>
+          <button className="checkout button btn fourth" onClick={CheckSize}>
+            Checkout
+          </button>
         </div>
       </div>
     </div>

@@ -1,12 +1,17 @@
 import React, {useState} from 'react'
 const ButtonClickable3 = (props) => {
-    
+    const [isActive, setActive] = useState("false");
+    const handleToggle = (e) => {
+     setActive(!isActive);
+     props.onClick(e)
+     
+    }; 
      return <button
                type="button"
                value={props.value}
                name={props.name}
-              
-               
+               className={isActive ? "button btn fourth" : "button btn fourthActive"}
+               onClick={handleToggle}
              >
               {props.name}
              </button>
