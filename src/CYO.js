@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ButtonClickable from "./button";
 import ButtonClickable2 from "./button2";
 const CYO = () => {
@@ -11,23 +11,41 @@ const CYO = () => {
   const addPizza = (e) => {
     setPizzaSize(e.target.name);
     setStartPrice(parseInt(e.target.value));
-    ButtonStuff();
-    console.log(isActive3)
+   
+    console.log("button 1 ", isActive)
+    console.log("button 2 ", isActive2)
+    console.log("button 3 ", isActive3)
   };
-  const ButtonStuff = () => {
-if (isActive === "true") {
-  setActive2("false")
-  setActive3("false")
-}
-if (isActive2 === "true") {
-  setActive("false")
-  setActive3("false")
-}
-if (isActive3 === "true") {
-  setActive("false")
-  setActive2("false")
-}
-  };
+   /* const ButtonStuff = () => {
+      if (isActive === "true") {
+        setActive2("false")
+        setActive3("false")
+      }
+      if (isActive2 === "true") {
+        setActive("false")
+        setActive3("false")
+      }
+      if (isActive3 === "true") {
+        setActive("false")
+        setActive2("false")
+      }
+        };
+      */
+        useEffect(() => {
+          if (isActive === "true") {
+            setActive2("false")
+            setActive3("false")
+          }
+          if (isActive2 === "true") {
+            setActive("false")
+            setActive3("false")
+          }
+          if (isActive3 === "true") {
+            setActive("false")
+            setActive2("false")
+          }
+}, [isActive, isActive2, isActive3]);
+
 
   const CheckSize = () => {
     if (pizzaSize === "Choose your Pizza Size") {
