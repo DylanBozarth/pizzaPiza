@@ -3,46 +3,49 @@ import ButtonClickable from "./button";
 import ButtonClickable2 from "./button2";
 const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState("Choose your Pizza Size");
-  const [isActive, setActive] = useState("false");
-  const [isActive2, setActive2] = useState("false");
-  const [isActive3, setActive3] = useState("false");
+  const [isActive, setActive] = useState(false);
+  const [isActive2, setActive2] = useState(false);
+  const [isActive3, setActive3] = useState(false);
   const [toppings, setToppings] = useState([]);
   const [startPrice, setStartPrice] = useState(0);
   const addPizza = (e) => {
     setPizzaSize(e.target.name);
     setStartPrice(parseInt(e.target.value));
-   
+  
     console.log("button 1 ", isActive)
     console.log("button 2 ", isActive2)
     console.log("button 3 ", isActive3)
+    console.log("SPACE BREAKER")
   };
-   /* const ButtonStuff = () => {
-      if (isActive === "true") {
-        setActive2("false")
-        setActive3("false")
+  /*
+    const ButtonStuff = () => {
+      if (isActive === true) {
+        setActive2(false)
+        setActive3(false)
       }
-      if (isActive2 === "true") {
-        setActive("false")
-        setActive3("false")
+      if (isActive2 === true) {
+        setActive(false)
+        setActive3(false)
       }
-      if (isActive3 === "true") {
-        setActive("false")
-        setActive2("false")
+      if (isActive3 === true) {
+        setActive(false)
+        setActive2(false)
       }
         };
       */
         useEffect(() => {
-          if (isActive === "true") {
-            setActive2("false")
-            setActive3("false")
+          
+          if (isActive === true) {
+            setActive2(false)
+            setActive3(false)
           }
-          if (isActive2 === "true") {
-            setActive("false")
-            setActive3("false")
+          if (isActive2 === true) {
+            setActive(false)
+            setActive3(false)
           }
-          if (isActive3 === "true") {
-            setActive("false")
-            setActive2("false")
+          if (isActive3 === true) {
+            setActive(false)
+            setActive2(false)
           }
 }, [isActive, isActive2, isActive3]);
 
@@ -118,7 +121,7 @@ const CYO = () => {
               isActive ? "button btn fourth" : "button btn fourthActive"
             }
             value="10"
-            onClick={(event) => {addPizza(event);  setActive("true")}}
+            onClick={(event) => {addPizza(event);  setActive(true);}}
           >
             Medium
           </button>
@@ -128,7 +131,7 @@ const CYO = () => {
               isActive2 ? "button btn fourth" : "button btn fourthActive"
             }
             value="15"
-            onClick={(event) => {addPizza(event); setActive2("true")}}
+            onClick={(event) => {addPizza(event); setActive2(true);}}
           >
             Large
           </button>
@@ -139,7 +142,7 @@ const CYO = () => {
             }
             value="20"
             onClick={(event) => {
-              addPizza(event); setActive3("true");
+              addPizza(event); setActive3(true);;
             }}
           >
             Extra large
