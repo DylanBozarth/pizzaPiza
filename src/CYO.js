@@ -3,52 +3,36 @@ import ButtonClickable from "./button";
 import ButtonClickable2 from "./button2";
 const CYO = () => {
   const [pizzaSize, setPizzaSize] = useState("Choose your Pizza Size");
-  const [isActive, setActive] = useState(false);
-  const [isActive2, setActive2] = useState(false);
-  const [isActive3, setActive3] = useState(false);
   const [toppings, setToppings] = useState([]);
   const [startPrice, setStartPrice] = useState(0);
+
+  const [btnStatus, setBtnStatus] = useState({
+    isActive: true,
+    isActive2: true,
+    isActive3: true
+  });
+
   const addPizza = (e) => {
     setPizzaSize(e.target.name);
     setStartPrice(parseInt(e.target.value));
-  
-    console.log("button 1 ", isActive)
-    console.log("button 2 ", isActive2)
-    console.log("button 3 ", isActive3)
-    console.log("SPACE BREAKER")
-  };
-  /*
-    const ButtonStuff = () => {
-      if (isActive === true) {
-        setActive2(false)
-        setActive3(false)
-      }
-      if (isActive2 === true) {
-        setActive(false)
-        setActive3(false)
-      }
-      if (isActive3 === true) {
-        setActive(false)
-        setActive2(false)
-      }
-        };
-      */
-        useEffect(() => {
-          
-          if (isActive === true) {
-            setActive2(false)
-            setActive3(false)
-          }
-          if (isActive2 === true) {
-            setActive(false)
-            setActive3(false)
-          }
-          if (isActive3 === true) {
-            setActive(false)
-            setActive2(false)
-          }
-}, [isActive, isActive2, isActive3]);
 
+    const currentActive = e.target.id;
+
+    if (currentActive === "isActive") {
+      setBtnStatus({ isActive: true, isActive2: false, isActive3: false });
+      console.log("1");
+    }
+    if (currentActive === "isActive2") {
+      setBtnStatus({ isActive: false, isActive2: true, isActive3: false });
+      console.log("2");
+    }
+    if (currentActive === "isActive3") {
+      setBtnStatus({ isActive: false, isActive2: false, isActive3: true });
+      console.log("3");
+    }
+
+    console.log(btnStatus);
+  };
 
   const CheckSize = () => {
     if (pizzaSize === "Choose your Pizza Size") {
@@ -113,40 +97,49 @@ const CYO = () => {
             </div>{" "}
           </p>
         </div>
+
         <div className="col-sm-4">
           <h3 className="white">Pizza size</h3>
           <button
             name="Medium"
             className={
-              isActive ? "button btn fourth" : "button btn fourthActive"
+              btnStatus.isActive
+                ? "button btn fourth"
+                : "button btn fourthActive"
             }
             value="10"
-            onClick={(event) => {addPizza(event);  setActive(true);}}
+            onClick={addPizza}
+            id="isActive"
           >
             Medium
           </button>
           <button
             name="Large"
             className={
-              isActive2 ? "button btn fourth" : "button btn fourthActive"
+              btnStatus.isActive2
+                ? "button btn fourth"
+                : "button btn fourthActive"
             }
             value="15"
-            onClick={(event) => {addPizza(event); setActive2(true);}}
+            onClick={addPizza}
+            id="isActive2"
           >
             Large
           </button>
           <button
             name="Extra Large"
             className={
-              isActive3 ? "button btn fourth" : "button btn fourthActive"
+              btnStatus.isActive3
+                ? "button btn fourth"
+                : "button btn fourthActive"
             }
             value="20"
-            onClick={(event) => {
-              addPizza(event); setActive3(true);;
-            }}
+            onClick={addPizza}
+            id="isActive3"
           >
             Extra large
           </button>
+
           <br />
           <h3 className="white">Toppings</h3>
           <p className="white">Toppings are $1.50 each</p>
