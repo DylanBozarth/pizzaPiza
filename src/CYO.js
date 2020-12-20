@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ButtonClickable from "./button";
 import ButtonClickable2 from "./button2";
 const CYO = () => {
@@ -100,6 +100,7 @@ const CYO = () => {
 
         <div className="col-sm-4">
           <h3 className="white">Pizza size</h3>
+          <p className="white">Medium $10, Large $15, Extra Large $20</p>
           <button
             name="Medium"
             className={
