@@ -104,8 +104,8 @@ const CYO = () => {
             name="Medium"
             className={
               btnStatus.isActive
-                ? "button btn fourth"
-                : "button btn fourthActive"
+                ? "button btn fourthActive"
+                : "button btn fourth"
             }
             value="10"
             onClick={addPizza}
@@ -117,8 +117,8 @@ const CYO = () => {
             name="Large"
             className={
               btnStatus.isActive2
-                ? "button btn fourth"
-                : "button btn fourthActive"
+                ? "button btn fourthActive"
+                : "button btn fourth"
             }
             value="15"
             onClick={addPizza}
@@ -130,8 +130,8 @@ const CYO = () => {
             name="Extra Large"
             className={
               btnStatus.isActive3
-                ? "button btn fourth"
-                : "button btn fourthActive"
+                ? "button btn fourthActive"
+                : "button btn fourth"
             }
             value="20"
             onClick={addPizza}
